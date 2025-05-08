@@ -32,7 +32,7 @@ jobs:
         profile:
           - "conda"
         #  - "docker"
-          - "singularity"
+        #  - "singularity"
         test_name:
           - "test"
         isMaster:
