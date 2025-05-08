@@ -2,19 +2,24 @@
     "name": "nfcore",
     "image": "nfcore/gitpod:latest",
     "remoteUser": "gitpod",
-    "runArgs": ["--privileged"],
-
-    // Configure tool-specific properties.
+    "runArgs": [
+      "--privileged",
+      "-v", "/var/run/docker.sock:/var/run/docker.sock"
+    ],
+    "features": {
+      "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "postCreateCommand": "sudo chmod a+r /opt/conda/bin/nextflow"
     "customizations": {
-        // Configure properties specific to VS Code.
-        "vscode": {
-            // Set *default* container specific settings.json values on container create.
-            "settings": {
-                "python.defaultInterpreterPath": "/opt/conda/bin/python"
-            },
-
-            // Add the IDs of extensions you want installed when the container is created.
-            "extensions": ["ms-python.python", "ms-python.vscode-pylance", "nf-core.nf-core-extensionpack"]
-        }
+      "vscode": {
+        "settings": {
+          "python.defaultInterpreterPath": "/opt/conda/bin/python"
+        },
+        "extensions": [
+          "ms-python.python",
+          "ms-python.vscode-pylance",
+          "nf-core.nf-core-extensionpack"
+        ]
+      }
     }
-}
+  }
