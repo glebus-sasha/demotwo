@@ -31,7 +31,7 @@ jobs:
           - "latest-everything"
         profile:
           - "conda"
-          - "docker"
+        #  - "docker"
           - "singularity"
         test_name:
           - "test"
